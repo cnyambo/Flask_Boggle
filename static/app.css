@@ -1,0 +1,9 @@
+.container-fluid {
+    margin: 40px;
+    padding: 20px;
+}
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}

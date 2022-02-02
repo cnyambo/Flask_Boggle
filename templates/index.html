@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title%}
+        DashBoard Boogle game
+        
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <br><br><br><br>
+    <div class="w-75 p-3 center" style="background-color: #eee;">
+        <h1>Dashboard Boogle Game</h1>
+        <table class="table table-bordered ">
+            
+
+            <tbody>
+                {% for val in  board %}
+                    <tr>
+                        {%for i in val%}
+                            <td class="col-md-1">{{i}}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor%}
+            </tbody>     
+            
+        </table>
+        <br><br> 
+        <ul>
+            {% for i in session['response'] %}
+            <li>{{i}}</li>
+            {% endfor %}
+        </ul>
+        <form class="form-inline">
+        <div class="form-group">
+            <label class="sr-only" for="word">Guess Word</label>
+            <input type="text" class="form-control" id="word" placeholder="Your Guess">
+        </div>
+        
+        <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <br>
+        <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+        <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div> 
+        <div id="worningAlert" class="alert alert-warning" role="alert" style="display:none;"></div>
+    </div>
+</div>
+{% endblock %}
