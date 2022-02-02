@@ -26,17 +26,18 @@ def index():
 def process():
  
     word = request.form['word']
+    print(word)
     result = boggle_game.check_valid_word( session['board'], word)
     print("****************word*******************") 
     print(f"word: {word}, result: {result}")
     print("****************word*******************") 
-    score = session['score'] 
-    new_word = {word:result }
+    score = session['score']
+    new_word = {word.upper():result }
     if  word and result=='ok':
         res = session['result']
         
         if word in res:
-            new_word[word] = f"{word} already added"
+            new_word[word.upper()] = f"{word.upper()} already added"
             return jsonify(worning=new_word )  
         
         
@@ -45,7 +46,7 @@ def process():
             score +=1
             new_word['score'] = score
             session['score'] =score 
-            res.append(word)
+            res.append(word.upper())
             session['result'] = res 
             return jsonify(word=new_word ) 
              

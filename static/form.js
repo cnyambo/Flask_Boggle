@@ -1,11 +1,11 @@
 
-const myTimeout = setTimeout(stopGame, 6000);
+const myTimeout = setTimeout(stopGame, 60000);
 
 function stopGame() {
     $(document).ready(function() {
         $('form').submit(function(e) {
             e.preventDefault();
-             
+            $("#btn_submit").attr("disabled", true);
         });
     });
 } 
